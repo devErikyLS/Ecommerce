@@ -34,6 +34,7 @@ public class CategoryServiceImplement implements CategoryService {
         Pageable pageDetails = PageRequest.of(pageNumber, pageSize, sortByAndOrder);
         Page <Category> categoryPage = categoryRepository.findAll(pageDetails);
         List <Category> categories = categoryPage.getContent();
+
         if (categories.isEmpty())
             throw new APIException("No category created till now.");
 
